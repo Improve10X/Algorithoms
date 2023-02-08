@@ -41,7 +41,7 @@ public class SumActivity extends AppCompatActivity {
         sumBtn.setOnClickListener(v -> {
             int progressOne = seekbarOneSb.getProgress();
             int progressTwo = seekbarTwoSb.getProgress();
-            String progress = sumIsLessThan100(progressOne,progressTwo);
+            String progress = sumIsLessThan100(progressOne, progressTwo);
             resultTxt.setText(progress);
         });
 
@@ -49,7 +49,7 @@ public class SumActivity extends AppCompatActivity {
 
     private String sumIsLessThan100(int progressOne, int progressTwo) {
         boolean result = false;
-        if (progressOne + progressTwo < 100){
+        if (progressOne + progressTwo < 100) {
             result = true;
         }
         return result + " ";
