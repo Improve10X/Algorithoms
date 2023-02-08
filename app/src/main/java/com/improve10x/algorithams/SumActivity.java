@@ -22,6 +22,14 @@ public class SumActivity extends AppCompatActivity {
         handleSumBtn();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        seekbarOneSb.setProgress(0);
+        seekbarTwoSb.setProgress(0);
+        resultTxt.setText("");
+    }
+
     private void initViews() {
         seekbarOneSb = findViewById(R.id.seekbar_one_sb);
         seekbarTwoSb = findViewById(R.id.seekbar_two_sb);
@@ -30,19 +38,22 @@ public class SumActivity extends AppCompatActivity {
     }
 
     private void handleSumBtn() {
-        sumBtn.setOnClickListener(view -> {
-            int progress1 = seekbarTwoSb.getProgress();
-            int progress2 = seekbarOneSb.getProgress();
-            boolean progress = sumIsLessthan100(progress1, progress2);
+        sumBtn.setOnClickListener(v -> {
+            int progressOne = seekbarOneSb.getProgress();
+            int progressTwo = seekbarTwoSb.getProgress();
+            String progress = sumIsLessThan100(progressOne,progressTwo);
             resultTxt.setText(progress);
         });
+
     }
 
-    private boolean sumIsLessthan100(int progres1, int progress2) {
+    private String sumIsLessThan100(int progressOne, int progressTwo) {
         boolean result = false;
-        if (progres1 + progress2 < 100) {
+        if (progressOne + progressTwo < 100){
             result = true;
         }
-        return result;
+        return result + " ";
     }
+
+
 }
