@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class SumActivity extends AppCompatActivity {
-    EditText number1Txt;
-    EditText number2Txt;
+    SeekBar seekbarOneSb;
+    SeekBar seekbarTwoSb;
     Button sumBtn;
     TextView resultTxt;
 
@@ -17,14 +18,31 @@ public class SumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sum);
-        inintViews();
+        initViews();
+        handleSumBtn();
     }
 
-    private void inintViews() {
-        number1Txt = findViewById(R.id.number1_txt);
-        number2Txt = findViewById(R.id.number2_txt);
+    private void initViews() {
+        seekbarOneSb = findViewById(R.id.seekbar_one_sb);
+        seekbarTwoSb = findViewById(R.id.seekbar_two_sb);
         sumBtn = findViewById(R.id.sum_btn);
         resultTxt = findViewById(R.id.result_txt);
     }
 
+    private void handleSumBtn() {
+        sumBtn.setOnClickListener(view -> {
+            int progress1 = seekbarTwoSb.getProgress();
+            int progress2 = seekbarOneSb.getProgress();
+            boolean progress = sumIsLessthan100(progress1, progress2);
+            resultTxt.setText(progress);
+        });
+    }
+
+    private boolean sumIsLessthan100(int progres1, int progress2) {
+        boolean result = false;
+        if (progres1 + progress2 < 100) {
+            result = true;
+        }
+        return result;
+    }
 }

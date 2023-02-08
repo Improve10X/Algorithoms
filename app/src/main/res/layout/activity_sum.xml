@@ -8,8 +8,8 @@
     android:orientation="vertical"
     tools:context=".SumActivity">
 
-    <EditText
-        android:id="@+id/number1_txt"
+    <SeekBar
+        android:id="@+id/seekbar_one_sb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
@@ -18,8 +18,8 @@
         android:ems="10"
         android:inputType="number" />
 
-    <EditText
-        android:id="@+id/number2_txt"
+    <SeekBar
+        android:id="@+id/seekbar_two_sb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
