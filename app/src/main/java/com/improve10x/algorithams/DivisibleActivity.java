@@ -32,6 +32,7 @@ public class DivisibleActivity extends AppCompatActivity {
             String number = numberTxt.getText().toString();
             String division = divisibleByFive(number);
             remainderTxt.setText(division);
+
         });
     }
 
